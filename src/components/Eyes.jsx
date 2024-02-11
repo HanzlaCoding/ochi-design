@@ -1,46 +1,56 @@
 import { useState, useEffect } from "react";
 
 function Eyes() {
-  let [rotate, setRotate] = useState(0);
+  const [rotate, setRotate] = useState(0);
 
   useEffect(() => {
-    window.addEventListener("mousemove", (e) => {
-      let mouseX = e.clientX;
-      let mouseY = e.clientY;
+    const handleMouseMove = (e) => {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      console.log("mouse x and y:", mouseX, mouseY);
 
-      let deltaX = mouseX - window.innerWidth;
-      let deltaY = mouseY - window.innerHeight;
+      const deltaX = mouseX - window.innerWidth / 2;
+      const deltaY = mouseY - window.innerHeight / 2;
+      console.log("delta x and y:", deltaX, deltaY);
 
-      let angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+      const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+      console.log(angle);
       setRotate(angle - 180);
-    });
-  });
+      console.log("rotate:", rotate);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, [rotate]);
 
   return (
     <div className="eyes w-full h-screen overflow-hidden">
-      <div className="relative w-full h-full bg-cover bg-center bg-[url('https://ochi.design/wp-content/uploads/2022/05/Top-Viewbbcbv-1-1440x921.jpg')]">
-        <div className="absolute flex justify-between items-center gap-10 top-1/2 left-1/2 -translate-y-[50%] -translate-x-[50%]">
-          <div className="w-[15vw] h-[15vw] rounded-full flex justify-center items-center bg-zinc-100">
-            <div className=" relative w-2/3 h-2/3 bg-zinc-900 rounded-full">
-              <div
-                style={{
-                  transform: `translate(-50%, -50%) rotate(${rotate}deg)`
-                }}
-                className="line w-full h-10 absolute top-1/2 left-1/2 -translate-y-[50%] -translate-x-[50%]"
-              >
-                <div className="w-5 h-5 bg-zinc-100 rounded-full"></div>
-              </div>
-            </div>
-          </div>
-          <div className="w-[15vw] h-[15vw] rounded-full flex justify-center items-center bg-zinc-100">
-            <div className=" relative w-2/3 h-2/3 bg-zinc-900 rounded-full">
+      <div  data-scroll data-scroll-section data-scroll-speed="-.7" className="relative w-full h-full bg-cover bg-center" style={{backgroundImage: `url('https://ochi.design/wp-content/uploads/2022/05/Top-Viewbbcbv-1-1440x921.jpg')`}}>
+        <div className="absolute flex justify-between items-center gap-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div className="w-24 h-24 rounded-full flex justify-center items-center bg-gray-100">
+            <div className="relative w-2/3 h-2/3 bg-gray-900 rounded-full">
               <div
                 style={{
                   transform: `translate(-50%, -50%) rotate(${rotate}deg)`,
                 }}
-                className="line w-full h-10 absolute top-1/2 left-1/2 -translate-y-[50%] -translate-x-[50%]"
+                className="line w-full h-10 absolute top-1/2 left-1/2"
               >
-                <div className="w-5 h-5 bg-zinc-100 rounded-full"></div>
+                <div className="w-3 h-3 bg-gray-100 rounded-full"></div>
+              </div>
+            </div>
+          </div>
+          <div className="w-24 h-24 rounded-full flex justify-center items-center bg-gray-100">
+            <div className="relative w-2/3 h-2/3 bg-gray-900 rounded-full">
+              <div
+                style={{
+                  transform: `translate(-50%, -50%) rotate(${rotate}deg)`,
+                }}
+                className="line w-full h-10 absolute top-1/2 left-1/2"
+              >
+                <div className="w-3 h-3 bg-gray-100 rounded-full"></div>
               </div>
             </div>
           </div>
