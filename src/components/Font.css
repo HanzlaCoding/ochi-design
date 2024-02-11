@@ -1,0 +1,25 @@
+@font-face {
+    font-family: fg;
+    src: url(./Font/Founders_Grotesk/FoundersGroteskXCond-Bold.otf);
+}
+@font-face {
+    font-family: nmr;
+    src: url(./Font/NeueMontreal-Regular.ttf);
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#marquee{
+    font-family: fg;
+}
+h1{
+    font-family: fg;
+}
+.para{
+    font-family: nmr;
+}
+.rm{
+    font-family: nmr;
+}
