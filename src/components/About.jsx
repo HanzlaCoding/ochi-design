@@ -12,7 +12,7 @@ function About() {
       <div className="w-1/2">
         <h1 className="rm text-5xl mt-5">Our approach:</h1>
         <button className="rm uppercase py-4 px-12 bg-zinc-900 mt-10 text-white rounded-full flex gap-5 justify-center items-center">
-          Read More <div className="w-2 h-2 bg-zinc-100 rounded-full"></div>
+          Read More <div className="read-more w-2 h-2 bg-zinc-100 rounded-full"></div>
         </button>
         </div>
         <div  className="w-1/2 h-[70vh] rounded-3xl bg-[#3e4427]"></div>

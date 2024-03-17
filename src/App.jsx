@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import LocomotiveScroll from "locomotive-scroll";
 
 function App() {
+  // eslint-disable-next-line no-unused-vars
   const locomotiveScroll = new LocomotiveScroll();
 
   return (
